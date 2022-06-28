@@ -20,10 +20,6 @@ export default function App() {
           <GraphQLProvider>
             <NavigationMenu
               navigationLinks={[
-                {
-                  label: "Page name",
-                  destination: "/pagename",
-                },
               ]}
             />
             <Routes pages={pages} />

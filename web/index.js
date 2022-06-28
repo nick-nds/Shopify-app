@@ -125,6 +125,18 @@ export async function createServer(
     }
   });
 
+  app.post("/api/subscription/new", async (req, res) => {
+    console.log("here");
+    try {
+      const response = await Shopify.Utils.graphqlProxy(req, res);
+      console.log("server", response);
+      res.status(200).send(response.body);
+    } catch (error) {
+      console.log("error", error);
+      res.status(500).send(error.message);
+    }
+  });
+
   app.use(express.json());
 
   app.use((req, res, next) => {
